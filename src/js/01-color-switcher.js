@@ -12,6 +12,7 @@ function getRandomHexColor() {
 
   refs.btnStart.addEventListener('click', handlerStart);
   refs.btnStop.addEventListener('click', handlerStop);
+  refs.btnStop.disabled = true;
 
   let intervalId = null;
 

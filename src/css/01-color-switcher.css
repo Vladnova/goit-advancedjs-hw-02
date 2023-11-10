@@ -1,0 +1,15 @@
+.btn-start {
+  background-color: green;
+ }
+
+ .btn-stop {
+  background-color: red;
+ }
+
+ .btn {
+  padding: 16px 32px;
+  border-radius: 16px;
+  font-size: 16px;
+  cursor: pointer;
+  border-color: aliceblue;
+ }
