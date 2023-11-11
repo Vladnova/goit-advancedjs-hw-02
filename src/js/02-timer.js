@@ -71,7 +71,8 @@ function handlerReset() {
 function startTimer() {
   const timer = convertMs(finishDate.getTime() - new Date().getTime());
   const { days, hours, minutes, seconds } = timer;
-  const { userDays, userHours, userMinutes, userSeconds } = refs;
+  const { userDays, userHours, userMinutes, userSeconds, input } = refs;
+  input.disabled =true;
 
   userDays.textContent = addLeadingZero(days);
   userHours.textContent = addLeadingZero(hours);
@@ -101,6 +102,7 @@ function reset() {
   clearInterval(idInterval);
   refs.btnStart.disabled = true;
   hiddenToogleBtnReset();
+  refs.input.disabled =false;
 }
 
 function disabledToogleBtnStart() {
