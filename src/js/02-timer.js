@@ -47,20 +47,13 @@ flatpickr(refs.input, options);
 function handlerStart() {
   hiddenToogleBtnReset();
   disabledToogleBtnStart();
-
+  startTimer();
   idInterval = setInterval(() => {
     if (finishDate.getTime() < new Date().getTime()) {
       reset();
       return;
     }
-    const timer = convertMs(finishDate.getTime() - new Date().getTime());
-    const { days, hours, minutes, seconds } = timer;
-    const { userDays, userHours, userMinutes, userSeconds } = refs;
-
-    userDays.textContent = addLeadingZero(days);
-    userHours.textContent = addLeadingZero(hours);
-    userMinutes.textContent = addLeadingZero(minutes);
-    userSeconds.textContent = addLeadingZero(seconds);
+    startTimer();
   }, 1000);
 }
 
@@ -73,6 +66,17 @@ function handlerReset() {
   userHours.textContent = '00';
   userMinutes.textContent = '00';
   userSeconds.textContent = '00';
+}
+
+function startTimer() {
+  const timer = convertMs(finishDate.getTime() - new Date().getTime());
+  const { days, hours, minutes, seconds } = timer;
+  const { userDays, userHours, userMinutes, userSeconds } = refs;
+
+  userDays.textContent = addLeadingZero(days);
+  userHours.textContent = addLeadingZero(hours);
+  userMinutes.textContent = addLeadingZero(minutes);
+  userSeconds.textContent = addLeadingZero(seconds);
 }
 
 function addLeadingZero(value) {
